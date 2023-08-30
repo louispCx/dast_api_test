@@ -1,0 +1,79 @@
+---
+env:
+  contexts:
+  - name: "Default Context"
+    urls:
+    - "http://rest.vulnweb.com/basic_authentication/api/"
+    includePaths:
+    - "http://rest.vulnweb.com/"
+    excludePaths: []
+    authentication:
+      method: "json"
+      parameters:
+        loginPageUrl: "http://rest.vulnweb.com/basic_authentication/api/"
+        loginRequestUrl: "http://rest.vulnweb.com/basic_authentication/api/"
+        loginRequestBody: "{\"tbUsername\":\"{%password%}\",\"tbPassword\":\"%password%\"\
+          ,\"cbPersistCookie\":\"on\",\"btnLogin\":\"Login\"}"
+      verification:
+        method: "response"
+        loggedInRegex: "Log out"
+        loggedOutRegex: "My account"
+        pollFrequency: 60
+        pollUnits: "requests"
+        pollUrl: ""
+        pollPostData: ""
+    sessionManagement:
+      method: "cookie"
+      parameters: {}
+    technology:
+      exclude: []
+    users:
+    - name: "admin"
+      credentials:
+        password: "admin"
+        username: "admin"
+  parameters:
+    failOnError: true
+    failOnWarning: false
+    progressToStdout: true
+  vars: {}
+jobs:
+- parameters:
+    maxAlertsPerRule: 0
+    scanOnlyInScope: true
+    maxBodySizeInBytesToScan: 0
+    enableTags: false
+    disableAllRules: false
+  rules: []
+  name: "passiveScan-config"
+  type: "passiveScan-config"
+- parameters:
+    apiFile: "C:\\Users\\joaor\\Downloads\\openapi-swagger_basicauthentication.yaml"
+    apiUrl: ""
+    targetUrl: "http://rest.vulnweb.com/basic_authentication/api/"
+    context: "Default Context"
+  name: "openapi"
+  type: "openapi"
+- parameters:
+    maxDuration: 0
+  name: "passiveScan-wait"
+  type: "passiveScan-wait"
+- parameters:
+    context: "Default Context"
+    user: ""
+    policy: ""
+    maxRuleDurationInMins: 0
+    maxScanDurationInMins: 0
+  policyDefinition:
+    defaultStrength: "medium"
+    defaultThreshold: "medium"
+    rules: []
+  name: "activeScan"
+  type: "activeScan"
+- parameters:
+    template: "risk-confidence-html"
+    reportDir: "C:\\Users\\joaor"
+    reportTitle: "ZAP Scanning Report"
+    reportDescription: ""
+  name: "report"
+  type: "report"
