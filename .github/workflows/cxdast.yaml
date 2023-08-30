@@ -2,7 +2,7 @@ name: CxONE Dast Scan Acunetix Vulnerable REST API
 on:
   pull_request:
    branches:
-    - main
+    - master
     
   workflow_dispatch: #adds a 'run now' button
   
