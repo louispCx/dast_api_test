@@ -1,0 +1,492 @@
+swagger: "2.0"
+info:
+  version: "1.0"
+  title: rest.vulnweb.com (Basic Authentication)
+  description: "TODO: Add Description"
+  contact: {}
+host: rest.vulnweb.com
+basePath: /basic_authentication
+schemes:
+  - http
+produces:
+  - application/json
+  - application/xml
+consumes:
+  - application/json
+  - application/xml
+paths:
+  /api/users:
+    get:
+      description: "TODO: Add Description"
+      summary: Get all users
+      tags:
+        - User
+      operationId: ApiUsersGet
+      deprecated: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+    post:
+      description: "TODO: Add Description"
+      summary: Add new user
+      tags:
+        - User
+      operationId: ApiUsersPost
+      deprecated: false
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ""
+          schema:
+            $ref: "#/definitions/AddnewuserRequest"
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /api/users/{username}: #GETEXP
+    get:
+      description: "TODO: Add Description"
+      summary: Get user
+      tags:
+        - User
+      parameters:
+        - name: username
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: string
+          example: test_username
+      operationId: ApiUsersTestUsernameGet
+      deprecated: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+    put: #PUTEXP
+      description: "TODO: Add Description"
+      summary: Edit user
+      tags:
+        - User
+      operationId: ApiUsersTestUsernamePut
+      deprecated: false
+      parameters:
+        - name: username
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: string
+          example: test_username
+        - name: Body
+          in: body
+          required: true
+          description: ""
+          schema:
+            $ref: "#/definitions/EdituserRequest"
+      responses:
+        200:
+          description: ""
+          headers: {}
+    delete: #DELETEEXP
+      description: "TODO: Add Description"
+      summary: Delete user
+      tags:
+        - User
+      operationId: ApiUsersTestUsernameDelete
+      deprecated: false
+      parameters:
+        - name: username
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: string
+          example: test_username
+        - name: callback
+          in: query
+          required: true
+          type: string
+          description: ""
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /api/users/{username}/posts:
+    get:
+      description: "TODO: Add Description"
+      summary: Get user posts
+      tags:
+        - User
+      parameters:
+        - name: username
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: string
+          example: ena07
+      operationId: ApiUsersEna07PostsGet
+      deprecated: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /api/posts:
+    get:
+      description: "TODO: Add Description"
+      summary: Get all posts
+      tags:
+        - Post
+      operationId: ApiPostsGet
+      deprecated: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+    post:
+      description: "TODO: Add Description"
+      summary: Add new post
+      tags:
+        - Post
+      operationId: ApiPostsPost
+      deprecated: false
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ""
+          schema:
+            $ref: "#/definitions/AddnewpostRequest"
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /api/posts/{id}:
+    get:
+      description: "TODO: Add Description"
+      summary: Get post
+      tags:
+        - Post
+      parameters:
+        - name: id
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 21
+      operationId: ApiPosts21Get
+      deprecated: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+    put:
+      description: "TODO: Add Description"
+      summary: Edit post
+      tags:
+        - Post
+      operationId: ApiPosts5Put
+      deprecated: false
+      parameters:
+        - name: id
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 5
+        - name: Body
+          in: body
+          required: true
+          description: ""
+          schema:
+            $ref: "#/definitions/EditpostRequest"
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /api/posts/{id}/comments:
+    get:
+      description: "TODO: Add Description"
+      summary: Get post comments
+      tags:
+        - Post
+      parameters:
+        - name: id
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 5
+      operationId: ApiPosts5CommentsGet
+      deprecated: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+    delete:
+      description: "TODO: Delete Post"
+      summary: Delete post
+      tags:
+        - Post
+      operationId: ApiPosts1Delete
+      deprecated: false
+      parameters:
+        - name: id
+          description: "TODO: Delete Post"
+          in: path
+          required: true
+          type: integer
+          format: int32
+          example: 5
+        - name: callback
+          in: query
+          required: true
+          type: string
+          description: ""
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /api/comments:
+    get:
+      description: "TODO: Add Description"
+      summary: Get all comments
+      tags:
+        - Comment
+      operationId: ApiCommentsGet
+      deprecated: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+    post:
+      description: "TODO: Add Description"
+      summary: Add new comment
+      tags:
+        - Comment
+      operationId: ApiCommentsPost
+      deprecated: false
+      parameters:
+        - name: Body
+          in: body
+          required: true
+          description: ""
+          schema:
+            $ref: "#/definitions/AddnewcommentRequest"
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /api/comments/{commentId}:
+    get:
+      description: "TODO: Add Description"
+      summary: Get comment
+      tags:
+        - Comment
+      parameters:
+        - name: commentId
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: integer
+          example: 101
+      operationId: ApiComments21Get
+      deprecated: false
+      responses:
+        200:
+          description: ""
+          headers: {}
+    put:
+      description: "TODO: Add Description"
+      summary: Edit comment
+      tags:
+        - Comment
+      operationId: ApiComments101Put
+      deprecated: false
+      parameters:
+        - name: commentId
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: integer
+          example: 101
+        - name: Body
+          in: body
+          required: true
+          description: ""
+          schema:
+            $ref: "#/definitions/EditcommentRequest"
+      responses:
+        200:
+          description: ""
+          headers: {}
+    delete:
+      description: "TODO: Add Description"
+      summary: Delete comment
+      tags:
+        - Comment
+      operationId: ApiComments101Delete
+      deprecated: false
+      parameters:
+        - name: commentId
+          description: "TODO: Add Description"
+          in: path
+          required: true
+          type: integer
+          example: 101
+        - name: callback
+          in: query
+          required: true
+          type: string
+          description: ""
+      responses:
+        200:
+          description: ""
+          headers: {}
+  /api:
+    get:
+      description: "TODO: Add Description"
+      summary: Test root path
+      tags:
+        - Misc
+      operationId: ApiGet
+      deprecated: false
+      produces:
+        - application/json
+      responses:
+        200:
+          description: ""
+          headers: {}
+definitions:
+  AddnewuserRequest:
+    title: AddnewuserRequest
+    example:
+      username: test_username
+      email: test_user@example.com
+      password: 123456
+      first_name: test
+      last_name: user
+    type: object
+    properties:
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+    required:
+      - username
+      - email
+      - password
+      - first_name
+      - last_name
+  EdituserRequest:
+    title: EdituserRequest
+    example:
+      username: test_username22
+      email: test_user@example22.com
+      password: 123456
+      first_name: test22
+      last_name: user22
+    type: object
+    properties:
+      username:
+        type: string
+      email:
+        type: string
+      password:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+    required:
+      - username
+      - email
+      - password
+      - first_name
+      - last_name
+  AddnewpostRequest:
+    title: AddnewpostRequest
+    example:
+      user_id: 21
+      title: test post title
+      content: test content
+    type: object
+    properties:
+      user_id:
+        type: string
+      title:
+        type: string
+      content:
+        type: string
+    required:
+      - user_id
+      - title
+      - content
+  EditpostRequest:
+    title: EditpostRequest
+    example:
+      user_id: 34
+      title: test post title22
+      content: test content22
+    type: object
+    properties:
+      user_id:
+        type: string
+      title:
+        type: string
+      content:
+        type: string
+    required:
+      - user_id
+      - title
+      - content
+  AddnewcommentRequest:
+    title: AddnewcommentRequest
+    example:
+      user_id: 21
+      post_id: 5
+      comment: test comment
+    type: object
+    properties:
+      user_id:
+        type: string
+      post_id:
+        type: string
+      comment:
+        type: string
+    required:
+      - user_id
+      - post_id
+      - comment
+  EditcommentRequest:
+    title: EditcommentRequest
+    example:
+      user_id: 21
+      post_id: 34
+      comment: test comment11
+    type: object
+    properties:
+      user_id:
+        type: string
+      post_id:
+        type: string
+      comment:
+        type: string
+    required:
+      - user_id
+      - post_id
+      - comment
+tags:
+  - name: User
+  - name: Post
+  - name: Comment
+  - name: Misc
+    description: ""
