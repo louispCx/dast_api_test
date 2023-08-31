@@ -1,4 +1,4 @@
-name: CxONE Dast Scan Acunetix Vulnerable REST API
+name: CxONE Dast Scan
 on:
   pull_request:
    branches:
@@ -43,8 +43,8 @@ jobs:
             fail_on: ""
             verbose: true
             output: ${{ github.workspace }}/output_fold
-      - name: Reclaim output directory
-        run: sudo chown -R 1001:1001 ${{ github.workspace }}/output_fold
+      #- name: Reclaim output directory
+      #  run: sudo chown -R 1001:1001 ${{ github.workspace }}/output_fold
       - name: Upload Logs
         uses: actions/upload-artifact@v3
         with:
