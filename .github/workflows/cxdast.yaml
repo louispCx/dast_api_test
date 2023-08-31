@@ -26,8 +26,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Create Output folder
         run: mkdir ${{ github.workspace }}/output_fold
-      - name: Change dir owner
-        run: sudo chown -R 1000:1000 ${{ github.workspace }}
+      #- name: Change dir owner
+      #  run: sudo chown -R 1000:1000 ${{ github.workspace }}
       - name: Checkmarx DAST Github Action
         uses: Checkmarx/dast-github-action@v1.0.4
         env:
