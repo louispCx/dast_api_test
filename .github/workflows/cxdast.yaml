@@ -7,7 +7,7 @@ on:
   workflow_dispatch: #adds a 'run now' button
   
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
