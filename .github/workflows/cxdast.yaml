@@ -1,4 +1,4 @@
-name: CxONE Dast Scan Acunetix Vulnerable REST API
+name: CxONE Dast Scan
 on:
   pull_request:
    branches:
